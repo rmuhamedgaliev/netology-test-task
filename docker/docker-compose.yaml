@@ -1,0 +1,20 @@
+version: "3"
+services:
+  db:
+    image: postgres:15-alpine
+    networks:
+      - netology-test-task
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: "netology"
+      POSTGRES_PASSWORD: "netology"
+      POSTGRES_DB: "netology"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data: {}
+
+networks:
+  netology-test-task:
